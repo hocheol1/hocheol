@@ -1,0 +1,26 @@
+I. Set up
+	1. Directories
+	   *main* directory in this README: /home/jk237/for_seo/
+	   /main/ed2/	: source codes (/src), installation codes (/build)
+	   /main/eddata/: input data (meteorological, vegetation, soil, phenology)
+	   /main/runs/  : This is where I (J.Kim) have putted all the runs together 
+       /main/scripts/  : This is where I (J.Kim) have putted all the run-sh files together 
+	2. ED2 installation
+		@/main/ed2/build
+		>./install.sh --clean
+		>./install.sh --kind A --platform hec1
+	3. copy ed_2.1-dbg and ed_2.1-dbg.a to a run_directory (eg. @/main/runs/run1 here)
+	4. ED2IN file is to control the model run (required)
+	   css and pss files are to set the vegetation initial status (not required to run from bare ground)
+	   xml file is to set up the physiology of each pft, and also set up the hydrology 
+      (if no xml file is provided, ED2 internal setting is putted)
+	5. Directories to be checked are in /main/runs/run1/ED2IN, eddata/*_HEADER
+
+II. Run
+	1. @runs/run1
+		>./ed_2.1-dbg
+	2. Output files will be created in /main/runs/run1/Hist and /main/runs/run1/Anal
+	3. To qsub the run, sh-script in /main/scripts/qsub_ed2.run1.sh
+	   Job process log is writted in /main/runs/run1/ED2.log.date_time
+
+
